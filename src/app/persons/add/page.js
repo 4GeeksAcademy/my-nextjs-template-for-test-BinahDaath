@@ -11,7 +11,7 @@ export default function AddPerson() {
 
   const router = useRouter();
   const handleSave = async (data) => {
-    const safeData = { dob: data.dob.toString(), ...data };
+    const safeData = { task:"test" };
     setIsSaving(true);
     await createPerson(safeData);
     setIsSaving(false);
