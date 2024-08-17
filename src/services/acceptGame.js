@@ -17,9 +17,16 @@ export const acceptGame = async (id) => {
     .select();
     if(data.color==="black")
     {
-      supabase
+      await supabase
       .from("game")
-      .insert([{player1:data.player,player2:user.id,status:"accepted",time,time1,time2,chesstable}])
+      .insert([{player1:data.player,player2:user.id,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:}])
+    }
+    else
+    {
+      await supabase
+      .from("game")
+      .insert([{player1:user.id,player2:data.player,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:}])
+
     }
 
   console.log(data);
