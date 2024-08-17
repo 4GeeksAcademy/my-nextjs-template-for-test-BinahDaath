@@ -20,9 +20,10 @@ export const acceptGame = async (id) => {
 ];
   console.log(supabase);
   const user=await getUser();
+  const d={player:user.id,status:"created",color:"white",time:600};
   const { data, error } = await supabase
     .from("game_proposition")
-    .update({status:"accepted"})
+    .update({status:"created"})
     .eq("id",id)
     .select();
     /*if(data.color==="black")
@@ -43,9 +44,9 @@ export const acceptGame = async (id) => {
   console.log(error);
   revalidatePath("/");
   
-  if (data.length > 0) {
-    return data[0];
-  }
+  //if (data.length > 0) {
+    //return data[0];
+  //}
 
   return null;
 };
