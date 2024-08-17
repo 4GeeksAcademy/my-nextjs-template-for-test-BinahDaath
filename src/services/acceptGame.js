@@ -25,7 +25,7 @@ export const acceptGame = async (id) => {
     .update({status:"accepted"})
     .eq("id",id)
     .select();
-    if(data.color==="black")
+    /*if(data.color==="black")
     {
       await supabase
       .from("game")
@@ -38,11 +38,11 @@ export const acceptGame = async (id) => {
       .insert([{player1:user.id,player2:data.player,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:JSON.stringify(initial_table)}])
 
     }
-
+  */
   console.log(data);
   console.log(error);
   revalidatePath("/");
-
+  
   if (data.length > 0) {
     return data[0];
   }
