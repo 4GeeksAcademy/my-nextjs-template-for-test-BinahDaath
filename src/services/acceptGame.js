@@ -8,6 +8,16 @@ import { ChessTable } from '@/components/Chesstable';
 export const acceptGame = async (id) => {
   //const supabase = createClient();
   const supabase = createClient("https://tuhjrjpmjlelzyiqvckc.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR1aGpyanBtamxlbHp5aXF2Y2tjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyMTY5MTg4MiwiZXhwIjoyMDM3MjY3ODgyfQ.8hyNUQwQLTekqZPfuJSTew3c3HnC-RuYBfzYc3cHaLA");
+  const initial_table=[
+    ["br","bkn","bb","bq","bk","bb","bkn","br"],
+    ["bp","bp","bp","bp","bp","bp","bp","bp"],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["wp","wp","wp","wp","wp","wp","wp","wp"],
+    ["wr","wkn","wb","wq","wk","wb","wkn","wr"]
+];
   console.log(supabase);
   const user=await getUser();
   const { data, error } = await supabase
@@ -19,13 +29,13 @@ export const acceptGame = async (id) => {
     {
       await supabase
       .from("game")
-      .insert([{player1:data.player,player2:user.id,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:}])
+      .insert([{player1:data.player,player2:user.id,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:JSON.stringify(initial_table)}])
     }
     else
     {
       await supabase
       .from("game")
-      .insert([{player1:user.id,player2:data.player,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:}])
+      .insert([{player1:user.id,player2:data.player,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:JSON.stringify(initial_table)}])
 
     }
 
