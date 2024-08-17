@@ -9,9 +9,10 @@ export const createGame = async (gameData) => {
   console.log(supabase);
   const { data, error } = await supabase
     .from("game_proposition")
-    .insert([personData])
+    .insert([gameData])
     .select();
-
+  console.log(data);
+  console.log(error);
   revalidatePath("/");
 
   if (data.length > 0) {

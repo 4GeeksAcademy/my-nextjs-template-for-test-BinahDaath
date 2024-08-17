@@ -1,14 +1,19 @@
 import { createClient } from "@/utils/supabase/server";
 import { Td } from "@/components/Td";
 import { MyLink } from "@/components/MyLink";
-
+import { createGame } from "@/services/createGame";
+import { getUser } from "@/services/getUser";
 export default async function PersonsList() {
   const supabase = createClient();
   const test = await supabase.from("profiles").select("*");
   const { data, error } = await supabase.from("todos").select("*");
-
+  const user=await getUser();
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+  console.log(user)
+  const d={player:user.id,status:"created",color:"white",time:600};
+  createGame(d);
   //console.log(data);
-  console.log(test);
+  //console.log(test);
     
   if (error) {
     return <div>Error querying data</div>;
