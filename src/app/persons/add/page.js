@@ -1,7 +1,7 @@
 "use client";
 
 import { PersonForm } from "@/components/PersonForm";
-import { createPerson } from "@/services/createPerson";
+import { createPerson } from "@/services/createPersoneTest";
 import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

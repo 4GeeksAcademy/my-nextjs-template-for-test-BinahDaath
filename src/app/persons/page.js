@@ -4,8 +4,12 @@ import { MyLink } from "@/components/MyLink";
 
 export default async function PersonsList() {
   const supabase = createClient();
+  const test = await supabase.from("profiles").select("*");
   const { data, error } = await supabase.from("todos").select("*");
 
+  //console.log(data);
+  console.log(test);
+    
   if (error) {
     return <div>Error querying data</div>;
   }

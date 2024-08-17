@@ -10,6 +10,7 @@ export async function login({ email, password }) {
     email,
     password,
   });
+  console.log(data);
   if (!error) {
     revalidatePath("/");
     redirect("/");
