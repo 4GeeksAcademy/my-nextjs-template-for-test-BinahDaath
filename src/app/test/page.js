@@ -1,5 +1,5 @@
 import { ChessTable } from "@/components/ChesstableTest";
-
+import Head from 'next/head'
 export default async function PersonsList() {
 
   

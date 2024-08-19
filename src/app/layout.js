@@ -3,7 +3,6 @@ import "./globals.css";
 import { getUser } from "@/services/getUser";
 import { MyLink } from "@/components/MyLink";
 import { Signout } from "@/components/Signout";
-
 const inter = Lato({ subsets: ["latin"], weight: "400" });
 
 export default async function RootLayout({ children }) {

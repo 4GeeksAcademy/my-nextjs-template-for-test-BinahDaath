@@ -504,21 +504,21 @@ bk:king,
         {
             if((index%2)===0)
             {
-                return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
+                return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
                 //return "w";
             }
             //return "b";
-            return <div className="bg-black text-white bg-opacity-25 flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
+            return <div className="bg-black text-white bg-opacity-25 flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
         }
         const renderChessCase2=(el,index)=>
         {
             if((index%2)===0)
             {
                 //return "b";
-                return <div className="bg-black bg-opacity-25 text-white flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
+                return <div className="bg-black bg-opacity-25 text-white flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
             }
             //return "w";
-            return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
+            return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
         }
         if((index%2)===0)
         {
