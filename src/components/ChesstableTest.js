@@ -64,52 +64,52 @@ const getPiece=(el)=>
 {
   if(el==="wp")
     {
-      return <i className="fas fa-chess-pawn text-white text-7xl"><FaChessPawn/></i>
+      return <i className="fas fa-chess-pawn text-white text-6xl"><FaChessPawn/></i>
     }
     if(el==="wkn")
     {
-      return <i className="fas fa-chess-knight text-white text-7xl"><FaChessKnight/></i>
+      return <i className="fas fa-chess-knight text-white text-6xl"><FaChessKnight/></i>
     }
     if(el==="wb")
     {
-      return <i className="fas fa-chess-bishop text-white text-7xl"><FaChessBishop/></i>
+      return <i className="fas fa-chess-bishop text-white text-6xl"><FaChessBishop/></i>
     }
     if(el==="wr")
     {
-      return <i className="fas fa-chess-rook text-white text-7xl"><FaChessRook/></i>
+      return <i className="fas fa-chess-rook text-white text-6xl"><FaChessRook/></i>
     }
     if(el==="wq")
     {
-      return <i className="fas fa-chess-queen text-white text-7xl"><FaChessQueen/></i>
+      return <i className="fas fa-chess-queen text-white text-6xl"><FaChessQueen/></i>
     }
     if(el==="wk")
     {
-      return <i className="fas fa-chess-king text-white text-7xl"><FaChessKing/></i>
+      return <i className="fas fa-chess-king text-white text-6xl"><FaChessKing/></i>
     }
 
   if(el==="bp")
   {
-    return <i className="fas fa-chess-pawn text-black text-7xl"><FaChessPawn/></i>
+    return <i className="fas fa-chess-pawn text-black text-6xl"><FaChessPawn/></i>
   }
   if(el==="bkn")
   {
-    return <i className="fas fa-chess-knight text-black text-7xl"><FaChessKnight/></i>
+    return <i className="fas fa-chess-knight text-black text-6xl"><FaChessKnight/></i>
   }
   if(el==="bb")
   {
-    return <i className="fas fa-chess-bishop text-black text-7xl"><FaChessBishop/></i>
+    return <i className="fas fa-chess-bishop text-black text-6xl"><FaChessBishop/></i>
   }
   if(el==="br")
   {
-    return <i className="fas fa-chess-rook text-black text-7xl"><FaChessRook/></i>
+    return <i className="fas fa-chess-rook text-black text-6xl"><FaChessRook/></i>
   }
   if(el==="bq")
   {
-    return <i className="fas fa-chess-queen text-black text-7xl"><FaChessQueen/></i>
+    return <i className="fas fa-chess-queen text-black text-6xl"><FaChessQueen/></i>
   }
   if(el==="bk")
   {
-    return <i className="fas fa-chess-king text-black text-7xl"><FaChessKing/></i>
+    return <i className="fas fa-chess-king text-black text-6xl"><FaChessKing/></i>
   }
 }
 const getColor=(chessTable,x,y)=>
