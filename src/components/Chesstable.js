@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-
+import { FaChessBishop } from "react-icons/fa";
+import { FaChessKing } from "react-icons/fa";
+import { FaChessKnight } from "react-icons/fa";
+import { FaChessPawn } from "react-icons/fa";
+import { FaChessQueen } from "react-icons/fa";
+import { FaChessRook } from "react-icons/fa";
 export function ChessTable({playerColor}) {
   //let s={width:"800px",height:"800px"};
   let handw=Math.min(window.innerHeight,window.innerWidth)
