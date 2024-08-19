@@ -2,6 +2,12 @@
 import { makeMove } from "@/services/makeMove";
 import React, { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
+import { FaChessBishop } from "react-icons/fa";
+import { FaChessKing } from "react-icons/fa";
+import { FaChessKnight } from "react-icons/fa";
+import { FaChessPawn } from "react-icons/fa";
+import { FaChessQueen } from "react-icons/fa";
+import { FaChessRook } from "react-icons/fa";
 export  function ChessTable({playerColor,id}) {
   //let s={width:"800px",height:"800px"};
   let handw=500
@@ -58,52 +64,52 @@ const getPiece=(el)=>
 {
   if(el==="wp")
     {
-      return <i className="fas fa-chess-pawn text-white text-7xl"></i>
+      return <i className="fas fa-chess-pawn text-white text-7xl"><FaChessPawn/></i>
     }
     if(el==="wkn")
     {
-      return <i className="fas fa-chess-knight text-white text-7xl"></i>
+      return <i className="fas fa-chess-knight text-white text-7xl"><FaChessKnight/></i>
     }
     if(el==="wb")
     {
-      return <i className="fas fa-chess-bishop text-white text-7xl"></i>
+      return <i className="fas fa-chess-bishop text-white text-7xl"><FaChessBishop/></i>
     }
     if(el==="wr")
     {
-      return <i className="fas fa-chess-rook text-white text-7xl"></i>
+      return <i className="fas fa-chess-rook text-white text-7xl"><FaChessRook/></i>
     }
     if(el==="wq")
     {
-      return <i className="fas fa-chess-queen text-white text-7xl"></i>
+      return <i className="fas fa-chess-queen text-white text-7xl"><FaChessQueen/></i>
     }
     if(el==="wk")
     {
-      return <i className="fas fa-chess-king text-white text-7xl"></i>
+      return <i className="fas fa-chess-king text-white text-7xl"><FaChessKing/></i>
     }
 
   if(el==="bp")
   {
-    return <i className="fas fa-chess-pawn text-black text-7xl"></i>
+    return <i className="fas fa-chess-pawn text-black text-7xl"><FaChessPawn/></i>
   }
   if(el==="bkn")
   {
-    return <i className="fas fa-chess-knight text-black text-7xl"></i>
+    return <i className="fas fa-chess-knight text-black text-7xl"><FaChessKnight/></i>
   }
   if(el==="bb")
   {
-    return <i className="fas fa-chess-bishop text-black text-7xl"></i>
+    return <i className="fas fa-chess-bishop text-black text-7xl"><FaChessBishop/></i>
   }
   if(el==="br")
   {
-    return <i className="fas fa-chess-rook text-black text-7xl"></i>
+    return <i className="fas fa-chess-rook text-black text-7xl"><FaChessRook/></i>
   }
   if(el==="bq")
   {
-    return <i className="fas fa-chess-queen text-black text-7xl"></i>
+    return <i className="fas fa-chess-queen text-black text-7xl"><FaChessQueen/></i>
   }
   if(el==="bk")
   {
-    return <i className="fas fa-chess-king text-black text-7xl"></i>
+    return <i className="fas fa-chess-king text-black text-7xl"><FaChessKing/></i>
   }
 }
 const getColor=(chessTable,x,y)=>
@@ -505,21 +511,21 @@ bk:king,
         {
             if((index%2)===0)
             {
-                return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
+                return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
                 //return "w";
             }
             //return "b";
-            return <div className="bg-black text-white bg-opacity-25 flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
+            return <div className="bg-black text-white bg-opacity-25 flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
         }
         const renderChessCase2=(el,index)=>
         {
             if((index%2)===0)
             {
                 //return "b";
-                return <div className="bg-black bg-opacity-25 text-white flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
+                return <div className="bg-black bg-opacity-25 text-white flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
             }
             //return "w";
-            return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":el}</div>
+            return <div className="bg-white bg-opacity-25 text-black flex flex-row justify-around" style={{height:caseSize+"px"}}>{el===""? "empty":getPiece(el)}</div>
         }
         if((index%2)===0)
         {

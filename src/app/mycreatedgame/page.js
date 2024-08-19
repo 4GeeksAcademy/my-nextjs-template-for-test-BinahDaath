@@ -6,7 +6,7 @@ import { getUser } from "@/services/getUser";
 import { acceptGame } from "@/services/acceptGame";
 import { GameProposition } from "@/components/GameProposition";
 import { MyCreatedGame } from "@/components/MyCreatedGame";
-export default async function GameList() {
+export default async function CreatedGameList() {
   const supabase = createClient();
   const user=await getUser();
   console.log(user)
