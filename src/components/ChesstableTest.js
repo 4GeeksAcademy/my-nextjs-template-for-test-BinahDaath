@@ -1,5 +1,5 @@
 "use client";
-
+import { makeMove } from "@/services/makeMove";
 import React, { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 export  function ChessTable({playerColor,id}) {
@@ -30,6 +30,7 @@ useEffect(()=>{console.log("time:"+time);
   supabase.from("game").select().eq("id",id).then((v)=>{
     setChessTable(JSON.parse(v.data[0].chesstable));
     setTurn(v.data[0].turn);
+    console.log(id);
     console.log(v)});
 },[time])
 const getChessTable=()=>{
@@ -604,6 +605,7 @@ bk:king,
         {
           setChessTable(ct);
           turn === "white" ? setTurn("black"):setTurn("white");
+          makeMove(id,{x:clickedx,y:clickedy},{x:x,y:y})
         }
         console.log(kingInCheck(ct,turn));
       }
