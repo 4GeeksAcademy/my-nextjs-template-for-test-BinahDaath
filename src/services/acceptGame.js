@@ -1,6 +1,4 @@
 "use server";
-
-//import { createClient } from "@/utils/supabase/server";
 import { createClient } from '@supabase/supabase-js'
 import { revalidatePath } from "next/cache";
 import { getUser } from "@/services/getUser";
@@ -21,25 +19,26 @@ export const acceptGame = async (id) => {
   console.log(supabase);
   const user=await getUser();
   const d={player:user.id,status:"created",color:"white",time:600};
-  const { data, error } = await supabase
+  let { data, error } = await supabase
     .from("game_proposition")
-    .update({status:"created"})
+    .update({status:"accepted"})
     .eq("id",id)
+    .eq("status","created")
+    .neq("player",user.id)
     .select();
-    /*if(data.color==="black")
+    if(data[0].color==="white")
     {
       await supabase
       .from("game")
-      .insert([{player1:data.player,player2:user.id,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:JSON.stringify(initial_table)}])
+      .insert([{player1:data[0].player,player2:user.id,status:"accepted",time:data[0].time,time1:data[0].time,time2:data[0].time,chesstable:JSON.stringify(initial_table)}])
     }
-    else
+    else if(data[0].color="black")
     {
       await supabase
       .from("game")
-      .insert([{player1:user.id,player2:data.player,status:"accepted",time:data.time,time1:data.time,time2:data.time,chesstable:JSON.stringify(initial_table)}])
+      .insert([{player1:user.id,player2:data[0].player,status:"accepted",time:data[0].time,time1:data[0].time,time2:data[0].time,chesstable:JSON.stringify(initial_table)}])
 
     }
-  */
   console.log(data);
   console.log(error);
   revalidatePath("/");

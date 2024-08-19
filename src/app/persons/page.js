@@ -11,7 +11,7 @@ export default async function PersonsList() {
   const user=await getUser();
   //console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
   //console.log(user)
-  //acceptGame("38cb93cd-c7c3-4d12-bb4c-bb1f59b82cd9");
+  acceptGame("01da7223-687c-4f0a-9938-2a02f21fbb80");
   //const d={player:user.id,status:"created",color:"white",time:600};
   //createGame(d);
   //console.log(data);
