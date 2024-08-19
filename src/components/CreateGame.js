@@ -3,10 +3,10 @@ import { Input } from "./Input";
 import React, { useState } from "react";
 import { createGame } from "@/services/createGame";
 //import { getUser } from "@/services/getUser";
-export function CreateGame({id}) {
+export function CreateGame() {
     const [time,setTime]=useState(null);
     const [color,setColor]=useState(null);
-    console.log(id);
+    //console.log(id);
   const handleColorChange=(el)=>{
     setColor(el.target.value);
   }

@@ -5,6 +5,7 @@ import { createGame } from "@/services/createGame";
 import { getUser } from "@/services/getUser";
 import { acceptGame } from "@/services/acceptGame";
 import { GameProposition } from "@/components/GameProposition";
+import { CreateGame } from "@/components/CreateGame";
 export default async function GameList() {
   const supabase = createClient();
   const user=await getUser();
@@ -21,5 +22,5 @@ export default async function GameList() {
       {data.map((el)=>{return (<div key={el.id} id={el.id}><GameProposition data={data[0]}/></div>)})}
     </div>
   );*/
-  return(<div>test</div>)
+  return(<CreateGame/>)
 }
