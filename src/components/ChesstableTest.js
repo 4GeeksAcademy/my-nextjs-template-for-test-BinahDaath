@@ -12,7 +12,7 @@ export  function ChessTable({playerColor,id}) {
   //let s={width:"800px",height:"800px"};
   let handw=Math.min(window.innerHeight,window.innerWidth);//500
   //let s={width:Math.floor((window.innerHeight/8)*8)+"px",height:Math.floor((window.innerHeight/8)*8)};
-  let s={width:Math.floor((handw/8)*8)+"px",height:Math.floor((handw/8)*8)};
+  let s={width:Math.floor(handw/8)*8+"px",height:Math.floor(handw/8)*8};
   let caseSize=Math.floor(handw/8);
   //(window.innerHeight/8)
   const [clicked,setClicked]=useState(false);
@@ -62,54 +62,76 @@ const getClickPosition=(playerColor,X,Y)=>
 }
 const getPiece=(el)=>
 {
+  let size=7;
+  if(caseSize<48)
+    {
+    size=4;
+    }
+  else if(caseSize<60)
+    {
+      size=5;
+    }
+  else if(caseSize<72)
+    {
+      size=6;
+    }
+  else if(caseSize<96)
+    {
+      size=7;
+    }
+  else if(caseSize<126)
+    {
+      size=8;
+    }
+  console.log(caseSize);
   if(el==="wp")
     {
-      return <i className="fas fa-chess-pawn text-white text-6xl"><FaChessPawn/></i>
+      return <i className={`fas fa-chess-pawn text-white text-${size}xl`}><FaChessPawn/></i>
     }
     if(el==="wkn")
     {
-      return <i className="fas fa-chess-knight text-white text-6xl"><FaChessKnight/></i>
+      return <i className={`fas fa-chess-knight text-white text-${size}xl`}><FaChessKnight/></i>
     }
     if(el==="wb")
     {
-      return <i className="fas fa-chess-bishop text-white text-6xl"><FaChessBishop/></i>
+      return <i className={`fas fa-chess-bishop text-white text-${size}xl`}><FaChessBishop/></i>
     }
     if(el==="wr")
     {
-      return <i className="fas fa-chess-rook text-white text-6xl"><FaChessRook/></i>
+      return <i className={`fas fa-chess-rook text-white text-${size}xl`}><FaChessRook/></i>
     }
     if(el==="wq")
     {
-      return <i className="fas fa-chess-queen text-white text-6xl"><FaChessQueen/></i>
+      return <i className={`fas fa-chess-queen text-white text-${size}xl`}><FaChessQueen/></i>
     }
     if(el==="wk")
     {
-      return <i className="fas fa-chess-king text-white text-6xl"><FaChessKing/></i>
+      return <i className={`fas fa-chess-king text-white text-${size}xl`}><FaChessKing/></i>
     }
 
   if(el==="bp")
   {
-    return <i className="fas fa-chess-pawn text-black text-6xl"><FaChessPawn/></i>
+    return <i className={`fas fa-chess-pawn text-black text-${size}xl`}><FaChessPawn/></i>
   }
   if(el==="bkn")
   {
-    return <i className="fas fa-chess-knight text-black text-6xl"><FaChessKnight/></i>
+    return <i className={`fas fa-chess-knight text-black text-${size}xl`}><FaChessKnight/></i>
   }
   if(el==="bb")
   {
-    return <i className="fas fa-chess-bishop text-black text-6xl"><FaChessBishop/></i>
+    return <i className={`fas fa-chess-bishop text-black text-${size}xl`}><FaChessBishop/></i>
   }
   if(el==="br")
   {
-    return <i className="fas fa-chess-rook text-black text-6xl"><FaChessRook/></i>
+    return <i className={`fas fa-chess-rook text-black text-${size}xl`}><FaChessRook/></i>
   }
   if(el==="bq")
   {
-    return <i className="fas fa-chess-queen text-black text-6xl"><FaChessQueen/></i>
+    return <i className={`fas fa-chess-queen text-black text-${size}xl`}><FaChessQueen/></i>
   }
   if(el==="bk")
   {
-    return <i className="fas fa-chess-king text-black text-6xl"><FaChessKing/></i>
+    return <i className={`fas fa-chess-king text-black text-${size}xl`}><FaChessKing/></i>
   }
 }
 const getColor=(chessTable,x,y)=>
