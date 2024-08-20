@@ -14,7 +14,7 @@ export function ChessTimer({id,color}) {
         let hour=Math.floor((t-day*3600*24)/3600);
         let minute=Math.floor((t-day*3600*24-hour*3600)/60);
         let second=(t-day*3600*24-hour*3600-minute*60);
-        return {day:day,hour:hour,minute:minute,second:second}
+        return {day:day,hour:hour,minute:minute,second:second};
     }
     //supabase.from("game").select().eq("id",id).then((p)=>{
       //  setPlayer1(p.data[0].first_name);
