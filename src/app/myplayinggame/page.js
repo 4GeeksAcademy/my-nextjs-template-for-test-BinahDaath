@@ -1,11 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
-import { Td } from "@/components/Td";
-import { MyLink } from "@/components/MyLink";
-import { createGame } from "@/services/createGame";
 import { getUser } from "@/services/getUser";
-import { acceptGame } from "@/services/acceptGame";
-import { GameProposition } from "@/components/GameProposition";
-import { MyCreatedGame } from "@/components/MyCreatedGame";
+import { MyPlayingGame } from "@/components/MyPlayingGame";
 export default async function PlayingGameList() {
   const supabase = createClient();
   const user=await getUser();
@@ -17,11 +12,12 @@ export default async function PlayingGameList() {
   if (error) {
     return <div>Error querying data</div>;
   }
-
+  //console.log(data)
+  //console.log(data1.data);
   return (
     <div className="flex flex-col">
-      {data.map((el)=>{return (<div key={el.id} id={el.id}><MyCreatedGame data={el}/></div>)})}
-      {data1.data.map((el)=>{return (<div key={el.id} id={el.id}><MyCreatedGame data={el}/></div>)})}
+      {data.map((el)=>{return (<MyPlayingGame key={el.id} data={el}/>)})}
+      {data1.data.map((el)=>{return (<MyPlayingGame key={el.id} data={el}/>)})}
     </div>
   );
   //return(<div>test</div>)
