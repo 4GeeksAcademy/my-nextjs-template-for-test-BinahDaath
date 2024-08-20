@@ -47,7 +47,7 @@ export function ChessTimer({id,color}) {
     //console.log(id);
     //console.log(data);
    return (
-    <div></div>
+    <div className="flex flex-col"></div>
       );
     //return (<div></div>);
   };
