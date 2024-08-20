@@ -21,6 +21,7 @@ export default async function PlayingGameList() {
   return (
     <div className="flex flex-col">
       {data.map((el)=>{return (<div key={el.id} id={el.id}><MyCreatedGame data={el}/></div>)})}
+      {data1.data.map((el)=>{return (<div key={el.id} id={el.id}><MyCreatedGame data={el}/></div>)})}
     </div>
   );
   //return(<div>test</div>)

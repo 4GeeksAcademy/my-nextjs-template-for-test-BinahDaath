@@ -10,7 +10,7 @@ import { FaChessQueen } from "react-icons/fa";
 import { FaChessRook } from "react-icons/fa";
 export  function ChessTable({playerColor,id}) {
   //let s={width:"800px",height:"800px"};
-  let handw=500
+  let handw=Math.min(window.innerHeight,window.innerWidth);//500
   //let s={width:Math.floor((window.innerHeight/8)*8)+"px",height:Math.floor((window.innerHeight/8)*8)};
   let s={width:Math.floor((handw/8)*8)+"px",height:Math.floor((handw/8)*8)};
   let caseSize=Math.floor(handw/8);
