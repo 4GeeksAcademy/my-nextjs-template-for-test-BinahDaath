@@ -27,11 +27,19 @@ export function ChessTimer({id,color}) {
     //})
     useEffect(()=>{
         supabase.from("game").select().eq("id",id).then((v)=>{
-            console.log(v.data[0].player1);
-            supabase.from("profiles").select().eq("id",v.data[0].player1).then((p)=>{
+            //console.log(v.data[0].player1);
+            if(color==="white")
+            {
+                supabase.from("profiles").select().eq("id",v.data[0].player1).then((p)=>{
                 setPlayer(p.data[0].first_name);
                 //console.log(p);
-            })
+            })}
+            else if(color==="black")
+                {
+                    supabase.from("profiles").select().eq("id",v.data[0].player2).then((p)=>{
+                    setPlayer(p.data[0].first_name);
+                    //console.log(p);
+                })}
         })
     },[])
     useEffect(()=>{
