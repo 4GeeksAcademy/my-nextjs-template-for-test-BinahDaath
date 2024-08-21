@@ -1,7 +1,7 @@
 "use client";
 import { Input } from "./Input";
 import React, { useState } from "react";
-import { createGame } from "@/services/createGame";
+import { creategame } from "@/services/creategame";
 //import { getUser } from "@/services/getUser";
 export function CreateGame() {
     const [time,setTime]=useState(null);
@@ -18,7 +18,7 @@ export function CreateGame() {
     if(((color==="white")||(color==="black"))&&(time>0))
     {
       const d={status:"created",color:color,time:time};
-      createGame(d);
+      creategame(d);
     }
   }
 

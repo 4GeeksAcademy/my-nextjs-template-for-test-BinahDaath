@@ -4,7 +4,7 @@ import { MyPlayingGame } from "@/components/MyPlayingGame";
 export default async function PlayingGameList() {
   const supabase = createClient();
   const user=await getUser();
-  console.log(user)
+  //console.log(user)
   //console.log(supabase)
   const { data, error } = await supabase.from("game").select().eq("player1",user.id).neq("status","ended");
     //console.log(data);
