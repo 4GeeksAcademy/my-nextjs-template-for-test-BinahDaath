@@ -10,7 +10,7 @@ export default async function RootLayout({ children }) {
   const user = await getUser();
   const supabase=createClient();
   const {data,error}=await supabase.from("profiles").select().eq("id",user.id);
-  let profile={id:null,first_name:"anonymous",last_name:"anonymouse"};
+  let profile;
   if(user)
   {
     console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
             <div>funChess</div>
             <div>
               {user ? (
-                <Signout user={user} />
+                <Signout user={user} profile={profile}/>
               ) : (
                 <MyLink href="/login">Login</MyLink>
               )}

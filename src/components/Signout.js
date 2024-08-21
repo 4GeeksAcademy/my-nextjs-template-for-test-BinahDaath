@@ -3,7 +3,7 @@
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 
-export function Signout({ user }) {
+export function Signout({ user,profile }) {
   const router = useRouter();
   const handleSignOut = async () => {
     const supabase = createClient();
