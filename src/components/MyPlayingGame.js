@@ -17,7 +17,7 @@ export function MyPlayingGame({data}) {
     //console.log(id);
     //console.log(data);
    return (
-        <Link href="/"><div className="flex flex-row gap-4">
+        <Link href={`/game/${data.id}`}><div className="flex flex-row gap-4">
             <div>{player1}</div><div>{player2}</div><div>{time}</div>
         </div>
         </Link>
