@@ -3,10 +3,12 @@ import "./globals.css";
 import { getUser } from "@/services/getUser";
 import { MyLink } from "@/components/MyLink";
 import { Signout } from "@/components/Signout";
+import { createClient } from "@/utils/supabase/server";
 const inter = Lato({ subsets: ["latin"], weight: "400" });
 
 export default async function RootLayout({ children }) {
   const user = await getUser();
+  const supabase=createClient();
 
   return (
     <html lang="en">
