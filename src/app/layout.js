@@ -9,7 +9,7 @@ const inter = Lato({ subsets: ["latin"], weight: "400" });
 export default async function RootLayout({ children }) {
   const user = await getUser();
   const supabase=createClient();
-  const {data,error}=await supabase.from("profiles").select().eq("id",user.id);
+  let {data,error}=await supabase.from("profiles").select().eq("id",(user ? user.id:0));
   let profile;
   if(user)
   {

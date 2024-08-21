@@ -18,6 +18,9 @@ export default async function PersonsList({ params: { id } }) {
     {
       playerColor="black";
     }
+    else{
+      playerColor="white";
+    }
     //console.log(user);
   return (<div className="flex flex-row"><ChessTable playerColor={playerColor} id={id} /><div><ChessTimer id={id} color={playerColor==="white" ? "black":"white"} bottom={false}/><ChessTimer id={id} color={playerColor} bottom={true}/></div></div>
 
