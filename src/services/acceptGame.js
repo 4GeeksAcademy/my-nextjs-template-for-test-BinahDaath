@@ -17,7 +17,7 @@ export const acceptGame = async (id) => {
 ];
   console.log(supabase);
   const user=await getUser();
-  const d={player:user.id,status:"created",color:"white",time:600};
+  //const d={player:user.id,status:"created",color:"white",time:600};
   let { data, error } = await supabase
     .from("game_proposition")
     .update({status:"accepted"})
