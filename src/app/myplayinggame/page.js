@@ -12,6 +12,10 @@ export default async function PlayingGameList() {
   if (error) {
     return <div>Error querying data</div>;
   }
+  if((data.length===0)&&(data1.data.length===0))
+  {
+    return <div>you're not playing any game</div> 
+  }
   //console.log(data)
   //console.log(data1.data);
   return (

@@ -52,7 +52,8 @@ export function ChessTimer({id,color,bottom}) {
     {
         if(color==="white")
         {
-            setTimer(v.data[0].time1-(Math.floor(((new Date()).getTime()/1000))-v.data[0].lastplay));
+            
+            v.data[0].lastplay ? setTimer(v.data[0].time1-(Math.floor(((new Date()).getTime()/1000))-v.data[0].lastplay)):setTimer(v.data[0].time1);;
         }
         else{
             setTimer(v.data[0].time2-(Math.floor(((new Date()).getTime()/1000))-v.data[0].lastplay));

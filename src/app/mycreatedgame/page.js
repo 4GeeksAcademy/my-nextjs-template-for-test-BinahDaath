@@ -11,7 +11,10 @@ export default async function CreatedGameList() {
   if (error) {
     return <div>Error querying data</div>;
   }
-
+  if(data.length===0)
+  {
+    return <div>you have no game availaible you've created</div>;
+  }
   return (
     <div className="flex flex-col gap-4">
       {data.map((el)=>{return (<div key={el.id} id={el.id}><MyCreatedGame data={el}/></div>)})}
