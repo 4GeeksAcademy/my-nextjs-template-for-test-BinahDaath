@@ -37,7 +37,8 @@ useEffect(()=>{console.log("time:"+time);
     setChessTable(JSON.parse(v.data[0].chesstable));
     setTurn(v.data[0].turn);
     //console.log(id);
-    //console.log(v)});
+    //console.log(v);
+  });
 },[time])
 const getChessTable=()=>{
   supabase.from("game").select().eq("id",id).then((v)=>{
@@ -140,11 +141,11 @@ const getColor=(chessTable,x,y)=>
   let color="empty";
 	if((chessTable[y][x].match("^w")!==null))
 	{
-		color="white";
+		color="white"
 	}
 	else if((chessTable[y][x].match("^b")!==null))
 	{
-		color="black";
+		color="black"
 	}
 	if(color!==turn)
 	{
@@ -646,9 +647,9 @@ bk:king,
     }
     else if(chessTable[y][x]!=="")
     {
-      //console.log(turn)
-      //console.log(whereCanItMove[chessTable[y][x]](chessTable,x,y))
-      let color=getColor(chessTable,x,y)
+      //console.log(turn);
+      //console.log(whereCanItMove[chessTable[y][x]](chessTable,x,y));
+      let color=getColor(chessTable,x,y);
       if(color===turn)
       {
         setClicked(true);
