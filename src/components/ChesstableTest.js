@@ -36,13 +36,14 @@ useEffect(()=>{console.log("time:"+time);
   supabase.from("game").select().eq("id",id).then((v)=>{
     setChessTable(JSON.parse(v.data[0].chesstable));
     setTurn(v.data[0].turn);
-    console.log(id);
-    console.log(v)});
+    //console.log(id);
+    //console.log(v)});
 },[time])
 const getChessTable=()=>{
   supabase.from("game").select().eq("id",id).then((v)=>{
     setChessTable(JSON.parse(v.data[0].chesstable));
-    console.log(v)});
+    //console.log(v);
+  });
 }
 //getChessTable()
 //console.log(id)
@@ -139,11 +140,11 @@ const getColor=(chessTable,x,y)=>
   let color="empty";
 	if((chessTable[y][x].match("^w")!==null))
 	{
-		color="white"
+		color="white";
 	}
 	else if((chessTable[y][x].match("^b")!==null))
 	{
-		color="black"
+		color="black";
 	}
 	if(color!==turn)
 	{
@@ -604,11 +605,11 @@ bk:king,
     let clickPosition=getClickPosition(playerColor,e.clientX,e.clientY);
     let x=clickPosition.x;
     let y=clickPosition.y;
-    console.log("testtesttesttesttesttesttesttesttest")
+    //console.log("testtesttesttesttesttesttesttesttest");
     if(clicked)
     {
       setClicked(false);
-      console.log(clicked);
+      //console.log(clicked);
       let color=getColor(chessTable,x,y);
       let canmove=false;
       let position=whereCanItMove[chessTable[clickedy][clickedx]](chessTable,clickedx,clickedy);
@@ -628,14 +629,14 @@ bk:king,
         let ct=JSON.parse(JSON.stringify(chessTable))
         ct[y][x]=chessTable[clickedy][clickedx];
         ct[clickedy][clickedx]="";
-        console.log(kingInCheck(ct,turn));
+        //console.log(kingInCheck(ct,turn));
         if(!kingInCheck(ct,turn))
         {
           setChessTable(ct);
           turn === "white" ? setTurn("black"):setTurn("white");
           makeMove(id,{x:clickedx,y:clickedy},{x:x,y:y})
         }
-        console.log(kingInCheck(ct,turn));
+        //console.log(kingInCheck(ct,turn));
       }
       /*if(chessTable[y][x]=="")
       {
@@ -645,8 +646,8 @@ bk:king,
     }
     else if(chessTable[y][x]!=="")
     {
-      console.log(turn)
-      console.log(whereCanItMove[chessTable[y][x]](chessTable,x,y))
+      //console.log(turn)
+      //console.log(whereCanItMove[chessTable[y][x]](chessTable,x,y))
       let color=getColor(chessTable,x,y)
       if(color===turn)
       {
