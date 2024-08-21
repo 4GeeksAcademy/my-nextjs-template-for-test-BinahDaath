@@ -8,8 +8,12 @@ export default async function PersonsList() {
     .select()
     .eq("id",2);
     const user=await getUser();
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    console.log(user);
     let playerColor;
-    if(data[0].player1===user.id)
+    if(user)
+    {
+      if(data[0].player1===user.id)
     {
       playerColor="white";
     }
@@ -17,6 +21,11 @@ export default async function PersonsList() {
     {
       playerColor="black";
     }
+  }
+  else
+  {
+    playerColor="white";
+  }
     //console.log(user);
   return (<ChessTable playerColor={playerColor} id="2" />
 
