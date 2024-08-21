@@ -15,7 +15,7 @@ export function MyCreatedGame({data}) {
         cancelGame(data.id);
     }
     return (
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-4 bg-green-200">
         <div>{data.color}</div><div>{data.time}</div><div>{state}</div>{state==="ok" ? <div onClick={cancel}>cancel</div>:<div></div>}
         </div>
       );

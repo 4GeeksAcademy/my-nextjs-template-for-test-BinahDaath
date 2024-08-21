@@ -18,7 +18,7 @@ export default async function CreatedGameList() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-4">
       {data.map((el)=>{return (<div key={el.id} id={el.id}><MyCreatedGame data={el}/></div>)})}
     </div>
   );
