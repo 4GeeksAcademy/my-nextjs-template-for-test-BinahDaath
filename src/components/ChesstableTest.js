@@ -272,7 +272,7 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
       }
       else if(getColor(chessTable,clickedx-i,clickedy+i)!==turn)
       {
-        position.push({x:clickedy+i,y:clickedx-i});
+        position.push({y:clickedy+i,x:clickedx-i});
         break;
       }
       else
@@ -649,7 +649,7 @@ bk:king,
     else if(chessTable[y][x]!=="")
     {
       //console.log(turn);
-      //console.log(whereCanItMove[chessTable[y][x]](chessTable,x,y));
+      console.log(whereCanItMove[chessTable[y][x]](chessTable,x,y));
       let color=getColor(chessTable,x,y);
       if(color===turn)
       {

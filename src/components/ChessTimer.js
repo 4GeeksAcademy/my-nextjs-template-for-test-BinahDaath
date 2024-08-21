@@ -77,7 +77,7 @@ export function ChessTimer({id,color,bottom}) {
     const d=(Math.floor((new Date()).getTime()/1000)%(24*3600));
     //console.log(d);
    return (
-    <div className="flex flex-col">{bottom===false ? <div>{player}</div>:""}{formatTime(timer)}{bottom===true ? <div>{player}</div>:""}</div>
+    <div className="flex flex-col">{bottom===false ? <div>{player}</div>:""}{timer>0 ? formatTime(timer):formatTime(0)}{bottom===true ? <div>{player}</div>:""}</div>
       );
     //return (<div></div>);
   };

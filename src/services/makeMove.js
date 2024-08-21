@@ -165,7 +165,7 @@ export const makeMove = async (id,clicked,newclick) => {
           }
           else if(getColor(chessTable,clickedx-i,clickedy+i)!==turn)
           {
-            position.push({x:clickedy+i,y:clickedx-i});
+            position.push({y:clickedy+i,x:clickedx-i});
             break;
           }
           else
