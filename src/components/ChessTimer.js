@@ -19,7 +19,7 @@ export function ChessTimer({id,color}) {
         let hourdiv=<div>{ta.hour}</div>;
         let minutediv=<div>{ta.minute}</div>;
         let seconddiv=<div>{ta.second}</div>
-        console.log(ta);
+        //console.log(ta);
         return (<div className="flex flex-row">{day!==0 ? (ta.day+":"):""}{((day===0)&&(hour===0)) ? "":(ta.hour+":")}{(ta.minute+":")}{ta.second}</div>);
     }
     //supabase.from("game").select().eq("id",id).then((p)=>{
@@ -28,8 +28,8 @@ export function ChessTimer({id,color}) {
     useEffect(()=>{console.log("time:"+time);
     setTimeout(()=>{setTime(time+1)},1000);
     supabase.from("game").select().eq("id",id).then((v)=>{
-        console.log(v);
-        console.log(timer);
+        //console.log(v);
+        //console.log(timer);
         //console.log(v.data[0].time1-(Math.floor(((new Date()).getTime()/1000))-v.data[0].lastplay));
     if(v.data.turn===color)
     {

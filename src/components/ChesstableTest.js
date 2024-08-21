@@ -85,7 +85,7 @@ const getPiece=(el)=>
     {
       size=8;
     }
-  console.log(caseSize);
+  //console.log(caseSize);
   if(el==="wp")
     {
       return <i className={`fas fa-chess-pawn text-white text-${size}xl`}><FaChessPawn/></i>
