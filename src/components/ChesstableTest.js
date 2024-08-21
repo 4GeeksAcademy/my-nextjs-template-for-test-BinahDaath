@@ -31,7 +31,8 @@ export  function ChessTable({playerColor,id}) {
 ]);
 const [supabase,setSupabase] = useState(createClient());
 const [time,setTime]=useState(0);
-useEffect(()=>{console.log("time:"+time);
+useEffect(()=>{
+  //console.log("time:"+time);
   setTimeout(()=>{setTime(time+1)},1000);
   supabase.from("game").select().eq("id",id).then((v)=>{
     setChessTable(JSON.parse(v.data[0].chesstable));

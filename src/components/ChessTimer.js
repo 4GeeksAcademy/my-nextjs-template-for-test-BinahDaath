@@ -25,7 +25,8 @@ export function ChessTimer({id,color}) {
     //supabase.from("game").select().eq("id",id).then((p)=>{
     //setPlayer(p.data[0].first_name);
     //})
-    useEffect(()=>{console.log("time:"+time);
+    useEffect(()=>{
+        //console.log("time:"+time);
     setTimeout(()=>{setTime(time+1)},1000);
     supabase.from("game").select().eq("id",id).then((v)=>{
         //console.log(v);
