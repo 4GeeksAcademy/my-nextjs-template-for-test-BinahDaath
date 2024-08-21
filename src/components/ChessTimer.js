@@ -26,6 +26,15 @@ export function ChessTimer({id,color}) {
     //setPlayer(p.data[0].first_name);
     //})
     useEffect(()=>{
+        supabase.from("game").select().eq("id",id).then((v)=>{
+            console.log(v.data[0].player1);
+            supabase.from("profiles").select().eq("id",v.data[0].player1).then((p)=>{
+                setPlayer(p.data[0].first_name);
+                //console.log(p);
+            })
+        })
+    },[])
+    useEffect(()=>{
         //console.log("time:"+time);
     setTimeout(()=>{setTime(time+1)},1000);
     supabase.from("game").select().eq("id",id).then((v)=>{
