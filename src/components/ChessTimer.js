@@ -29,10 +29,11 @@ export function ChessTimer({id,color}) {
         //console.log("time:"+time);
     setTimeout(()=>{setTime(time+1)},1000);
     supabase.from("game").select().eq("id",id).then((v)=>{
+        console.log(v.data[0].turn);
         //console.log(v);
         //console.log(timer);
         //console.log(v.data[0].time1-(Math.floor(((new Date()).getTime()/1000))-v.data[0].lastplay));
-    if(v.data.turn===color)
+    if(v.data[0].turn===color)
     {
         if(color==="white")
         {
