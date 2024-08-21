@@ -1,5 +1,4 @@
 "use client";
-import { Input } from "./Input";
 import React, { useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/client";

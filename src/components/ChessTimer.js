@@ -1,7 +1,5 @@
 "use client";
-import { Input } from "./Input";
 import React, { useEffect,useState } from "react";
-import Link from "next/link";
 import { createClient } from "@/utils/supabase/client";
 //import { getUser } from "@/services/getUser";
 export function ChessTimer({id,color,bottom}) {

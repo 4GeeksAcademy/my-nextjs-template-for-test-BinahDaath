@@ -1,7 +1,5 @@
 "use client";
-import { Input } from "./Input";
 import React, { useState } from "react";
-import { createGame } from "@/services/createGame";
 import { cancelGame } from "@/services/cancelGame";
 //import { getUser } from "@/services/getUser";
 export function MyCreatedGame({data}) {
