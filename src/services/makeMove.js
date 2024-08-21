@@ -5,7 +5,7 @@ import { getUser } from "@/services/getUser";
 export const makeMove = async (id,clicked,newclick) => {
   //const supabase = createClient();
   const supabase = createClient("https://tuhjrjpmjlelzyiqvckc.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR1aGpyanBtamxlbHp5aXF2Y2tjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyMTY5MTg4MiwiZXhwIjoyMDM3MjY3ODgyfQ.8hyNUQwQLTekqZPfuJSTew3c3HnC-RuYBfzYc3cHaLA");
-  console.log(supabase);
+  //console.log(supabase);
   const user=await getUser();
   const d={player:user.id,status:"created",color:"white",time:600};
   let { data, error } = await supabase
@@ -13,9 +13,9 @@ export const makeMove = async (id,clicked,newclick) => {
     .select()
     .eq("id",id)
     //console.log(data);
-    console.log(error)
+    //console.log(error)
     data=data[0];
-    console.log(data);
+    //console.log(data);
   let turn=data.turn;
   let playercolor;
   let chessTable=JSON.parse(data.chesstable);
@@ -470,7 +470,8 @@ export const makeMove = async (id,clicked,newclick) => {
               if(data.lastplay!==null)
               {playertime=data["time"+(playercolor==="white" ? "1":"2")]-(time-data.lastplay)};
               playertime=(playertime<0 ? 0:playertime)
-              if(playercolor==="white")
+              if(playertime>0)
+              {if(playercolor==="white")
               {await supabase
               .from("game")
               .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time1:playertime})
@@ -481,7 +482,7 @@ export const makeMove = async (id,clicked,newclick) => {
               .from("game")
               .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time2:playertime})
               .eq("id",id)
-              }
+              }}
               console.log("succes");
             }
             //console.log(kingInCheck(ct,turn));

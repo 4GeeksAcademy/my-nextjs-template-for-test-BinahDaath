@@ -10,11 +10,11 @@ export default async function PersonsList({ params: { id } }) {
     .eq("id",id);
     const user=await getUser();
     let playerColor;
-    if(data[0].player1===user.id)
+    if(data[0].player1===(user ? user.id:0))
     {
       playerColor="white";
     }
-    else if(data[0].player2===user.id)
+    else if(data[0].player2===(user ? user.id:0))
     {
       playerColor="black";
     }
