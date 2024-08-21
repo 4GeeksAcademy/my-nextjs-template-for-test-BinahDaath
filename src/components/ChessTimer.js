@@ -4,7 +4,7 @@ import React, { useEffect,useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/client";
 //import { getUser } from "@/services/getUser";
-export function ChessTimer({id,color}) {
+export function ChessTimer({id,color,bottom}) {
     const [time,setTime]=useState(0);
     const [timer,setTimer]=useState();
     const [player,setPlayer]=useState(null);
@@ -77,7 +77,7 @@ export function ChessTimer({id,color}) {
     const d=(Math.floor((new Date()).getTime()/1000)%(24*3600));
     //console.log(d);
    return (
-    <div className="flex flex-col">{formatTime(timer)}</div>
+    <div className="flex flex-col">{bottom===false ? <div>{player}</div>:""}{formatTime(timer)}{bottom===true ? <div>{player}</div>:""}</div>
       );
     //return (<div></div>);
   };
