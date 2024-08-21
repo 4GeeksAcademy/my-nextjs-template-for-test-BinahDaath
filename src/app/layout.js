@@ -13,7 +13,7 @@ export default async function RootLayout({ children }) {
       <body className={inter.className}>
         <div className="w-10/12 mx-auto flex flex-col">
           <div className="py-4 flex flex-row justify-between items-center">
-            <div>MyApp</div>
+            <div>funChess</div>
             <div>
               {user ? (
                 <Signout user={user} />
