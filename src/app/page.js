@@ -8,10 +8,10 @@ export default async function Home() {
   }
   return (
     <div className="flex flex-col">
-      <MyLink href="/choosegame">Choose Game</MyLink>
-      <MyLink href="/creategame">Create Game</MyLink>
-      <MyLink href="/mycreatedgame">My Created Game</MyLink>
-      <MyLink href="/myplayinggame">My Playing Game</MyLink>
+      <div className="mx-auto"><MyLink href="/choosegame">Choose Game</MyLink></div>
+      <div className="mx-auto"><MyLink href="/creategame">Create Game</MyLink></div>
+      <div className="mx-auto"><MyLink href="/mycreatedgame">My Created Game</MyLink></div>
+      <div className="mx-auto"><MyLink href="/myplayinggame">My Playing Game</MyLink></div>
     </div>
   );
 }
