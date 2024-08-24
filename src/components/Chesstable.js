@@ -28,6 +28,10 @@ export function ChessTable({playerColor}) {
     ["wp","wp","wp","wp","wp","wp","wp","wp"],
     ["wr","wkn","wb","wq","wk","wb","wkn","wr"]
 ]);
+const [whiteRigthRock, setWhiteRigthRock]=useState(true);
+const [blackRigthRock, setBlackRigthRock]=useState(true);
+const [whiteLeftRock, setWhiteLeftRock]=useState(true);
+const [blackLeftRock, setBlackLeftRock]=useState(true);
 const getClickPosition=(playerColor,X,Y)=>
 {
   let c=document.querySelector("div.grid");
@@ -472,6 +476,15 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
         {
           position.push({y:clickedy+1,x:clickedx})
         }
+      }
+      console.log({y:clickedy,x:clickedx,turn:turn,chessTablePosition:chessTable[6][0]});
+      if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black"))
+      {
+        position.push({y:0,x:6});
+      }
+      if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][5]==="")&&(chessTable[7][6]==="")&&(turn==="white"))
+      {
+        position.push({y:7,x:6});
       }
       return position;
     }
