@@ -482,6 +482,10 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
       {
         position.push({y:0,x:6});
       }
+      if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black"))
+      {
+        position.push({y:0,x:6});
+      }
       if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][5]==="")&&(chessTable[7][6]==="")&&(turn==="white"))
       {
         position.push({y:7,x:6});
