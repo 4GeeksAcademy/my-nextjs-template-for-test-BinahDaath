@@ -9,9 +9,9 @@ import { FaChessQueen } from "react-icons/fa";
 import { FaChessRook } from "react-icons/fa";
 export function ChessTable({playerColor}) {
   //let s={width:"800px",height:"800px"};
-  let handw=Math.min(window.innerHeight,window.innerWidth)
+  let handw=500; //Math.min(window.innerHeight,window.innerWidth)
   //let s={width:Math.floor((window.innerHeight/8)*8)+"px",height:Math.floor((window.innerHeight/8)*8)};
-  let s={width:Math.floor((handw/8)*8)+"px",height:Math.floor((handw/8)*8)};
+  let s={width:Math.floor((handw/8)*8)+"px",height:Math.floor((handw/8)*8)+"px"};
   let caseSize=Math.floor(handw/8);
   //(window.innerHeight/8)
   const [clicked,setClicked]=useState(false);
@@ -19,19 +19,19 @@ export function ChessTable({playerColor}) {
   const [clickedy,setClickedy]=useState();
   const [turn,setTurn]=useState("white");
   const [chessTable, setChessTable] = useState([
-    ["br","bkn","bb","bq","bk","bb","bkn","br"],
+    ["brq","bkn","bb","bq","bk","bb","bkn","brk"],
     ["bp","bp","bp","bp","bp","bp","bp","bp"],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["wp","wp","wp","wp","wp","wp","wp","wp"],
-    ["wr","wkn","wb","wq","wk","wb","wkn","wr"]
+    ["wrq","wkn","wb","wq","wk","wb","wkn","wrk"]
 ]);
-const [whiteRigthRock, setWhiteRigthRock]=useState(true);
-const [blackRigthRock, setBlackRigthRock]=useState(true);
-const [whiteLeftRock, setWhiteLeftRock]=useState(true);
-const [blackLeftRock, setBlackLeftRock]=useState(true);
+const [whiteLittleRock, setWhiteLittleRock]=useState(true);
+const [blackLittleRock, setBlackLittleRock]=useState(true);
+const [whiteBigRock, setWhiteBigRock]=useState(true);
+const [blackBigRock, setBlackBigRock]=useState(true);
 const getClickPosition=(playerColor,X,Y)=>
 {
   let c=document.querySelector("div.grid");
@@ -82,7 +82,7 @@ const getPiece=(el)=>
       {
         return <i className={`fas fa-chess-bishop text-white text-${size}xl`}><FaChessBishop/></i>
       }
-      if(el==="wr")
+      if(el.match("^wr"))
       {
         return <i className={`fas fa-chess-rook text-white text-${size}xl`}><FaChessRook/></i>
       }
@@ -107,7 +107,7 @@ const getPiece=(el)=>
     {
       return <i className={`fas fa-chess-bishop text-black text-${size}xl`}><FaChessBishop/></i>
     }
-    if(el==="br")
+    if(el.match("^br"))
     {
       return <i className={`fas fa-chess-rook text-black text-${size}xl`}><FaChessRook/></i>
     }
@@ -119,6 +119,7 @@ const getPiece=(el)=>
     {
       return <i className={`fas fa-chess-king text-black text-${size}xl`}><FaChessKing/></i>
     }
+    return el;
   }
   
 const getColor=(chessTable,x,y)=>
@@ -478,17 +479,21 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
         }
       }
       console.log({y:clickedy,x:clickedx,turn:turn,chessTablePosition:chessTable[6][0]});
-      if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black"))
+      if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black")&&(chessTable[0][7]==="brk")&&blackLittleRock)
       {
         position.push({y:0,x:6});
       }
-      if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black"))
+      if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][3]==="")&&(chessTable[0][2]==="")&&(chessTable[0][1]==="")&&(turn==="black")&&(chessTable[0][0]==="brq")&&blackBigRock)
       {
-        position.push({y:0,x:6});
+        position.push({y:0,x:2});
       }
-      if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][5]==="")&&(chessTable[7][6]==="")&&(turn==="white"))
+      if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][5]==="")&&(chessTable[7][6]==="")&&(turn==="white")&&(chessTable[7][7]==="wrk")&&whiteLittleRock)
       {
         position.push({y:7,x:6});
+      }
+      if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][3]==="")&&(chessTable[7][2]==="")&&(chessTable[7][1]==="")&&(turn==="white")&&(chessTable[7][0]==="wrq")&&whiteBigRock)
+      {
+        position.push({y:7,x:2});
       }
       return position;
     }
@@ -502,7 +507,11 @@ bkn:knigth,
 wb:bishop,
 bb:bishop,
 wr:rook,
+wrq:rook,
+wrk:rook,
 br:rook,
+brq:rook,
+brk:rook,
 wq:queen,
 bq:queen,
 wk:king,
