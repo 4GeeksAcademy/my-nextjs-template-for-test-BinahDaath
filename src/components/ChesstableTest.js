@@ -667,7 +667,7 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
         //console.log(kingInCheck(ct,turn));
         if(!kingInCheck(ct,turn))
         {
-          /*if(chessTable[clickedy][clickedx]==="bk")
+          if(chessTable[clickedy][clickedx]==="bk")
             {
               if(((clickedx===4)&&(clickedy===0))&&((x===6)&&(y===0)))
               {
@@ -700,7 +700,7 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
                 setWhiteBigRock(false);
                 setWhiteLittleRock(false);
               }
-            }*/
+            }
 
           setChessTable(ct);
           turn === "white" ? setTurn("black"):setTurn("white");
