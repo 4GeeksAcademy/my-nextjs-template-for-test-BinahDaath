@@ -637,6 +637,32 @@ bk:king,
         ct[y][x]=chessTable[clickedy][clickedx];
         ct[clickedy][clickedx]="";
         console.log(kingInCheck(ct,turn));
+        if(chessTable[clickedy][clickedx]==="bk")
+          {
+            if(((clickedx===4)&&(clickedy===0))&&((x===6)&&(y===0)))
+            {
+              ct[0][7]="";
+              ct[0][5]="brk";
+            }
+            if(((clickedx===4)&&(clickedy===0))&&((x===2)&&(y===0)))
+            {
+              ct[0][0]="";
+              ct[0][3]="brq";
+            }
+          }
+          if(chessTable[clickedy][clickedx]==="wk")
+          {
+            if(((clickedx===4)&&(clickedy===7))&&((x===6)&&(y===7)))
+            {
+              ct[7][7]="";
+              ct[7][5]="wrk";
+            }
+            if(((clickedx===4)&&(clickedy===7))&&((x===2)&&(y===7)))
+            {
+              ct[7][0]="";
+              ct[7][3]="wrq";
+            }
+          }
         if(!kingInCheck(ct,turn))
         {
           setChessTable(ct);
