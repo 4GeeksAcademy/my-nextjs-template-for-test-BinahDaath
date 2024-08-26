@@ -483,7 +483,7 @@ export const makeMove = async (id,clicked,newclick) => {
             ct[clicked.y][clicked.x]="";
             if(!kingInCheck(ct,turn)&&(playercolor===turn))
             {
-              if(chessTable[clicked.y][clicked.x]==="bk")
+              /*if(chessTable[clicked.y][clicked.x]==="bk")
                 {
                   if(((clicked.x===4)&&(clicked.y===0))&&((newclick.x===6)&&(newclick.y===0)))
                   {
@@ -516,7 +516,7 @@ export const makeMove = async (id,clicked,newclick) => {
                     whiteBigRock=false;
                     whiteLittleRock=false;
                   }
-                }    
+                }*/ 
               ct=JSON.stringify(ct);
               turn=(turn === "white" ? "black":"white");
               let time=Math.floor(((new Date()).getTime())/1000);
