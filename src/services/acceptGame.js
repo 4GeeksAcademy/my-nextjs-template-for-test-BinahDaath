@@ -6,14 +6,14 @@ export const acceptGame = async (id) => {
   //const supabase = createClient();
   const supabase = createClient("https://tuhjrjpmjlelzyiqvckc.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR1aGpyanBtamxlbHp5aXF2Y2tjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyMTY5MTg4MiwiZXhwIjoyMDM3MjY3ODgyfQ.8hyNUQwQLTekqZPfuJSTew3c3HnC-RuYBfzYc3cHaLA");
   const initial_table=[
-    ["br","bkn","bb","bq","bk","bb","bkn","br"],
+    ["brq","bkn","bb","bq","bk","bb","bkn","brk"],
     ["bp","bp","bp","bp","bp","bp","bp","bp"],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["wp","wp","wp","wp","wp","wp","wp","wp"],
-    ["wr","wkn","wb","wq","wk","wb","wkn","wr"]
+    ["wrq","wkn","wb","wq","wk","wb","wkn","wrk"]
 ];
   console.log(supabase);
   const user=await getUser();
