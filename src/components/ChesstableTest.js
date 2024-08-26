@@ -521,21 +521,25 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
       return position;
     }
 
-const whereCanItMove=
-{
-wp:whitePawn,
-bp:blackPawn,
-wkn:knigth,
-bkn:knigth,
-wb:bishop,
-bb:bishop,
-wr:rook,
-br:rook,
-wq:queen,
-bq:queen,
-wk:king,
-bk:king,
-}
+    const whereCanItMove=
+    {
+    wp:whitePawn,
+    bp:blackPawn,
+    wkn:knigth,
+    bkn:knigth,
+    wb:bishop,
+    bb:bishop,
+    wr:rook,
+    wrq:rook,
+    wrk:rook,
+    br:rook,
+    brq:rook,
+    brk:rook,
+    wq:queen,
+    bq:queen,
+    wk:king,
+    bk:king,
+    }
 
 
 
