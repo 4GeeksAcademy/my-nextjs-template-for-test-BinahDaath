@@ -12,7 +12,8 @@ export  function ChessTable({playerColor,id}) {
   //let s={width:"800px",height:"800px"};
   let handw=Math.min(window.innerHeight-100,window.innerWidth-100);//500
   //let s={width:Math.floor((window.innerHeight/8)*8)+"px",height:Math.floor((window.innerHeight/8)*8)};
-  let s={width:Math.floor(handw/8)*8+"px",height:Math.floor(handw/8)*8};
+  let s={width:Math.floor(handw/8)*8+"px",height:Math.floor(handw/8)*8+"px"};
+  console.log(s);
   let caseSize=Math.floor(handw/8);
   //(window.innerHeight/8)
   const [clicked,setClicked]=useState(false);
