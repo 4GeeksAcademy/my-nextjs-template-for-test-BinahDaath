@@ -641,36 +641,32 @@ bk:king,
         {
           if(chessTable[clickedy][clickedx]==="bk")
             {
+              setBlackBigRock(false);
+              setBlackLittleRock(false);
               if(((clickedx===4)&&(clickedy===0))&&((x===6)&&(y===0)))
               {
                 ct[0][7]="";
                 ct[0][5]="brk";
-                setBlackBigRock(false);
-                setBlackLittleRock(false);
               }
               if(((clickedx===4)&&(clickedy===0))&&((x===2)&&(y===0)))
               {
                 ct[0][0]="";
                 ct[0][3]="brq";
-                setBlackBigRock(false);
-                setBlackLittleRock(false);
               }
             }
             if(chessTable[clickedy][clickedx]==="wk")
             {
+              setWhiteBigRock(false);
+              setWhiteLittleRock(false);
               if(((clickedx===4)&&(clickedy===7))&&((x===6)&&(y===7)))
               {
                 ct[7][7]="";
                 ct[7][5]="wrk";
-                setWhiteBigRock(false);
-                setWhiteLittleRock(false);
               }
               if(((clickedx===4)&&(clickedy===7))&&((x===2)&&(y===7)))
               {
                 ct[7][0]="";
                 ct[7][3]="wrq";
-                setWhiteBigRock(false);
-                setWhiteLittleRock(false);
               }
             }
           setChessTable(ct);
