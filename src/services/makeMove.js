@@ -16,6 +16,10 @@ export const makeMove = async (id,clicked,newclick) => {
     //console.log(error)
     data=data[0];
     //console.log(data);
+  const whiteLittleRock=;
+  const blackLittleRock=;
+  const whiteBigRock=;
+  const blackBigRock=;
   let turn=data.turn;
   let playercolor;
   let chessTable=JSON.parse(data.chesstable);
