@@ -32,7 +32,7 @@ export const makeMove = async (id,clicked,newclick) => {
   {
     playercolor="black";
   }
-  console.log({player1:data.player1,user:user.id})
+  //console.log({player1:data.player1,user:user.id})
   //console.log(data);
   //console.log(playercolor);
   const getColor=(chessTable,x,y)=>
@@ -391,7 +391,7 @@ export const makeMove = async (id,clicked,newclick) => {
               position.push({y:clickedy+1,x:clickedx})
             }
           }
-          /*if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black")&&(chessTable[0][7]==="brk")&&blackLittleRock)
+          if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black")&&(chessTable[0][7]==="brk")&&blackLittleRock)
           {
             position.push({y:0,x:6});
           }
@@ -406,25 +406,29 @@ export const makeMove = async (id,clicked,newclick) => {
           if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][3]==="")&&(chessTable[7][2]==="")&&(chessTable[7][1]==="")&&(turn==="white")&&(chessTable[7][0]==="wrq")&&whiteBigRock)
           {
             position.push({y:7,x:2});
-          }*/
+          }
           return position;
         }
     
-    const whereCanItMove=
-    {
-    wp:whitePawn,
-    bp:blackPawn,
-    wkn:knigth,
-    bkn:knigth,
-    wb:bishop,
-    bb:bishop,
-    wr:rook,
-    br:rook,
-    wq:queen,
-    bq:queen,
-    wk:king,
-    bk:king,
-    }
+        const whereCanItMove=
+        {
+        wp:whitePawn,
+        bp:blackPawn,
+        wkn:knigth,
+        bkn:knigth,
+        wb:bishop,
+        bb:bishop,
+        wr:rook,
+        wrq:rook,
+        wrk:rook,
+        br:rook,
+        brq:rook,
+        brk:rook,
+        wq:queen,
+        bq:queen,
+        wk:king,
+        bk:king,
+        }
     
     
     const kingInCheck=(chessTable,color)=>
@@ -487,7 +491,7 @@ export const makeMove = async (id,clicked,newclick) => {
             console.log(playercolor+turn);
             if(!kingInCheck(ct,turn)&&(playercolor===turn))
             {
-              /*if(chessTable[clicked.y][clicked.x]==="bk")
+              if(chessTable[clicked.y][clicked.x]==="bk")
                 {
                   if(((clicked.x===4)&&(clicked.y===0))&&((newclick.x===6)&&(newclick.y===0)))
                   {
@@ -520,7 +524,7 @@ export const makeMove = async (id,clicked,newclick) => {
                     whiteBigRock=false;
                     whiteLittleRock=false;
                   }
-                }*/ 
+                } 
               ct=JSON.stringify(ct);
               turn=(turn === "white" ? "black":"white");
               let time=Math.floor(((new Date()).getTime())/1000);
