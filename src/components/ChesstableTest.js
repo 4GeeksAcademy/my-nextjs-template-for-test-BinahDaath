@@ -637,13 +637,16 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
     let clickPosition=getClickPosition(playerColor,e.clientX,e.clientY);
     let x=clickPosition.x;
     let y=clickPosition.y;
+    console.log({x:x,y:y})
     //console.log("testtesttesttesttesttesttesttesttest");
     if(clicked)
     {
+      console.log("clicked");
       setClicked(false);
       //console.log(clicked);
       let color=getColor(chessTable,x,y);
       let canmove=false;
+      console.log(chessTable[clickedy][clickedx]);
       let position=whereCanItMove[chessTable[clickedy][clickedx]](chessTable,clickedx,clickedy);
       for(let i in position)
       {
@@ -664,7 +667,7 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
         //console.log(kingInCheck(ct,turn));
         if(!kingInCheck(ct,turn))
         {
-          if(chessTable[clickedy][clickedx]==="bk")
+          /*if(chessTable[clickedy][clickedx]==="bk")
             {
               if(((clickedx===4)&&(clickedy===0))&&((x===6)&&(y===0)))
               {
@@ -697,10 +700,11 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
                 setWhiteBigRock(false);
                 setWhiteLittleRock(false);
               }
-            }
+            }*/
 
           setChessTable(ct);
           turn === "white" ? setTurn("black"):setTurn("white");
+          console.log("moving");
           makeMove(id,{x:clickedx,y:clickedy},{x:x,y:y})
         }
         //console.log(kingInCheck(ct,turn));
