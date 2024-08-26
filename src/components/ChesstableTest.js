@@ -31,6 +31,10 @@ export  function ChessTable({playerColor,id}) {
 ]);
 const [supabase,setSupabase] = useState(createClient());
 const [time,setTime]=useState(0);
+const [whiteLittleRock, setWhiteLittleRock]=useState(true);
+const [blackLittleRock, setBlackLittleRock]=useState(true);
+const [whiteBigRock, setWhiteBigRock]=useState(true);
+const [blackBigRock, setBlackBigRock]=useState(true);
 useEffect(()=>{
   //console.log("time:"+time);
   setTimeout(()=>{setTime(time+1)},1000);
@@ -103,7 +107,7 @@ const getPiece=(el)=>
     {
       return <i className={`fas fa-chess-bishop text-white text-${size}xl`}><FaChessBishop/></i>
     }
-    if(el==="wr")
+    if(el.match("^wr"))
     {
       return <i className={`fas fa-chess-rook text-white text-${size}xl`}><FaChessRook/></i>
     }
@@ -128,7 +132,7 @@ const getPiece=(el)=>
   {
     return <i className={`fas fa-chess-bishop text-black text-${size}xl`}><FaChessBishop/></i>
   }
-  if(el==="br")
+  if(el.match("^br"))
   {
     return <i className={`fas fa-chess-rook text-black text-${size}xl`}><FaChessRook/></i>
   }
