@@ -537,13 +537,13 @@ export const makeMove = async (id,clicked,newclick) => {
               { console.log("should be moved");
                 await supabase
               .from("game")
-              .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time1:playertime})
+              .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time1:playertime,whiteBigRock:whiteBigRock,whiteLittleRock:whiteLittleRock})
               .eq("id",id)}
               else
               {
                 await supabase
               .from("game")
-              .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time2:playertime})
+              .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time2:playertime,blackBigRock:blackBigRock,blackLittleRock:blackLittleRock})
               .eq("id",id)
               }
             }
