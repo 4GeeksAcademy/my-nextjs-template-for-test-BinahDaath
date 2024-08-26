@@ -144,6 +144,7 @@ const getPiece=(el)=>
   {
     return <i className={`fas fa-chess-king text-black text-${size}xl`}><FaChessKing/></i>
   }
+  return el;
 }
 const getColor=(chessTable,x,y)=>
 {
