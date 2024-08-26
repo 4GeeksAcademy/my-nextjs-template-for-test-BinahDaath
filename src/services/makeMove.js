@@ -2,6 +2,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { revalidatePath } from "next/cache";
 import { getUser } from "@/services/getUser";
+import { cookies } from 'next/headers';
 export const makeMove = async (id,clicked,newclick) => {
   //const supabase = createClient();
   const supabase = createClient("https://tuhjrjpmjlelzyiqvckc.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR1aGpyanBtamxlbHp5aXF2Y2tjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyMTY5MTg4MiwiZXhwIjoyMDM3MjY3ODgyfQ.8hyNUQwQLTekqZPfuJSTew3c3HnC-RuYBfzYc3cHaLA");
@@ -31,7 +32,8 @@ export const makeMove = async (id,clicked,newclick) => {
   {
     playercolor="black";
   }
-  console.log(data);
+  console.log({player1:data.player1,user:user.id})
+  //console.log(data);
   //console.log(playercolor);
   const getColor=(chessTable,x,y)=>
     {
@@ -389,7 +391,7 @@ export const makeMove = async (id,clicked,newclick) => {
               position.push({y:clickedy+1,x:clickedx})
             }
           }
-          if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black")&&(chessTable[0][7]==="brk")&&blackLittleRock)
+          /*if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black")&&(chessTable[0][7]==="brk")&&blackLittleRock)
           {
             position.push({y:0,x:6});
           }
@@ -404,7 +406,7 @@ export const makeMove = async (id,clicked,newclick) => {
           if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][3]==="")&&(chessTable[7][2]==="")&&(chessTable[7][1]==="")&&(turn==="white")&&(chessTable[7][0]==="wrq")&&whiteBigRock)
           {
             position.push({y:7,x:2});
-          }
+          }*/
           return position;
         }
     
@@ -478,9 +480,11 @@ export const makeMove = async (id,clicked,newclick) => {
         }
         if(canmove)
           {
+            console.log("maybe");
             let ct=JSON.parse(JSON.stringify(chessTable))
             ct[newclick.y][newclick.x]=chessTable[clicked.y][clicked.x];
             ct[clicked.y][clicked.x]="";
+            console.log(playercolor+turn);
             if(!kingInCheck(ct,turn)&&(playercolor===turn))
             {
               /*if(chessTable[clicked.y][clicked.x]==="bk")
@@ -522,11 +526,16 @@ export const makeMove = async (id,clicked,newclick) => {
               let time=Math.floor(((new Date()).getTime())/1000);
               let playertime=data.time;
               if(data.lastplay!==null)
-              {playertime=data["time"+(playercolor==="white" ? "1":"2")]-(time-data.lastplay)};
+              {
+              playertime=data["time"+(playercolor==="white" ? "1":"2")]-(time-data.lastplay)
+              };
               playertime=(playertime<0 ? 0:playertime)
+              console.log("playertime:"+playertime);
               if(playertime>0)
-              {if(playercolor==="white")
-              {await supabase
+              {
+              if(playercolor==="white")
+              { console.log("should be moved");
+                await supabase
               .from("game")
               .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time1:playertime})
               .eq("id",id)}
@@ -536,7 +545,8 @@ export const makeMove = async (id,clicked,newclick) => {
               .from("game")
               .update({chesstable:ct,turn:turn,status:"started",lastplay:time,time2:playertime})
               .eq("id",id)
-              }}
+              }
+            }
               console.log("succes");
             }
             //console.log(kingInCheck(ct,turn));
