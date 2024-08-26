@@ -493,36 +493,32 @@ export const makeMove = async (id,clicked,newclick) => {
             {
               if(chessTable[clicked.y][clicked.x]==="bk")
                 {
+                  blackBigRock=false;
+                  blackLittleRock=false;
                   if(((clicked.x===4)&&(clicked.y===0))&&((newclick.x===6)&&(newclick.y===0)))
                   {
                     ct[0][7]="";
                     ct[0][5]="brk";
-                    blackBigRock=false;
-                    blackLittleRock=false;
                   }
                   if(((clicked.x===4)&&(clicked.y===0))&&((newclick.x===2)&&(newclick.y===0)))
                   {
                     ct[0][0]="";
                     ct[0][3]="brq";
-                    blackBigRock=false;
-                    blackLittleRock=false;
                   }
                 }
                 if(chessTable[clicked.y][clicked.x]==="wk")
                 {
+                  whiteBigRock=false;
+                  whiteLittleRock=false;
                   if(((clicked.x===4)&&(clicked.y===7))&&((newclick.x===6)&&(newclick.y===7)))
                   {
                     ct[7][7]="";
                     ct[7][5]="wrk";
-                    whiteBigRock=false;
-                    whiteLittleRock=false;
                   }
                   if(((clicked.x===4)&&(clicked.y===7))&&((newclick.x===2)&&(newclick.y===7)))
                   {
                     ct[7][0]="";
                     ct[7][3]="wrq";
-                    whiteBigRock=false;
-                    whiteLittleRock=false;
                   }
                 } 
               ct=JSON.stringify(ct);
