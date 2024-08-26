@@ -501,6 +501,23 @@ const blackPawn=(chessTable,clickedx,clickedy)=>
           position.push({y:clickedy+1,x:clickedx})
         }
       }
+      if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][5]==="")&&(chessTable[0][6]==="")&&(turn==="black")&&(chessTable[0][7]==="brk")&&blackLittleRock)
+        {
+          position.push({y:0,x:6});
+        }
+        if(((clickedx===4)&&(clickedy===0))&&(chessTable[0][3]==="")&&(chessTable[0][2]==="")&&(chessTable[0][1]==="")&&(turn==="black")&&(chessTable[0][0]==="brq")&&blackBigRock)
+        {
+          position.push({y:0,x:2});
+        }
+        if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][5]==="")&&(chessTable[7][6]==="")&&(turn==="white")&&(chessTable[7][7]==="wrk")&&whiteLittleRock)
+        {
+          position.push({y:7,x:6});
+        }
+        if(((clickedx===4)&&(clickedy===7))&&(chessTable[7][3]==="")&&(chessTable[7][2]==="")&&(chessTable[7][1]==="")&&(turn==="white")&&(chessTable[7][0]==="wrq")&&whiteBigRock)
+        {
+          position.push({y:7,x:2});
+        }
+  
       return position;
     }
 
