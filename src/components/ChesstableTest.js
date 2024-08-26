@@ -20,14 +20,14 @@ export  function ChessTable({playerColor,id}) {
   const [clickedy,setClickedy]=useState();
   const [turn,setTurn]=useState("white");
   const [chessTable, setChessTable] = useState([
-    ["br","bkn","bb","bq","bk","bb","bkn","br"],
+    ["brq","bkn","bb","bq","bk","bb","bkn","brk"],
     ["bp","bp","bp","bp","bp","bp","bp","bp"],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["","","","","","","",""],
     ["wp","wp","wp","wp","wp","wp","wp","wp"],
-    ["wr","wkn","wb","wq","wk","wb","wkn","wr"]
+    ["wrq","wkn","wb","wq","wk","wb","wkn","wrk"]
 ]);
 const [supabase,setSupabase] = useState(createClient());
 const [time,setTime]=useState(0);
