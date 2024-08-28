@@ -32,4 +32,7 @@ export async function signup({ email, password }) {
     revalidatePath("/");
     redirect("/");
   }
+  else{
+    console.log(error);
+  }
 }
