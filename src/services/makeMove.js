@@ -525,6 +525,10 @@ export const makeMove = async (id,clicked,newclick) => {
               turn=(turn === "white" ? "black":"white");
               let time=Math.floor(((new Date()).getTime())/1000);
               let playertime=data.time;
+              if(playertime===0)
+              {
+                return 0;
+              }
               if(data.lastplay!==null)
               {
               playertime=data["time"+(playercolor==="white" ? "1":"2")]-(time-data.lastplay)

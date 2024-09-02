@@ -7,7 +7,7 @@ export default async function Home() {
     return(<div></div>)
   }
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-12 gap-6">
       <div className="mx-auto h-10"><MyLink href="/choosegame">Choose Game</MyLink></div>
       <div className="mx-auto h-10"><MyLink href="/creategame">Create Game</MyLink></div>
       <div className="mx-auto h-10"><MyLink href="/mycreatedgame">My Created Game</MyLink></div>

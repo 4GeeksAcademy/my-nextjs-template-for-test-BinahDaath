@@ -4,6 +4,7 @@ import { getUser } from "@/services/getUser";
 import { MyLink } from "@/components/MyLink";
 import { Signout } from "@/components/Signout";
 import { createClient } from "@/utils/supabase/server";
+import { FaChess } from "react-icons/fa";
 const inter = Lato({ subsets: ["latin"], weight: "400" });
 
 export default async function RootLayout({ children }) {
@@ -22,8 +23,9 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="w-10/12 mx-auto flex flex-col">
-          <div className="py-4 flex flex-row justify-between items-center">
+          <div className="py-4 flex flex-row justify-between items-center bg-green-200 mb-2">
             <div>funChess</div>
+            <FaChess />
             <div>
               {user ? (
                 <Signout user={user} profile={profile}/>
